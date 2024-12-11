@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
         $row = mysqli_fetch_array($result);
         $idservicios = $row['idservicio'];
         $fechahora = $row['fechahora'];
+        $telefono = $row['telefono'];
     }
 }
 
@@ -18,8 +19,9 @@ if (isset($_POST['servicio'])) {
     $id = $_GET['id'];
     $idservicios = $_POST['servicio'];
     $fechahora = $_POST['fehora'];
+    $telefono = $_POST['telefono'];
 
-    $query = "UPDATE reservaciones SET idservicio = '$idservicios', fechahora = '$fechahora' WHERE idreservaciones = $id";
+    $query = "UPDATE reservaciones SET idservicio = '$idservicios', fechahora = '$fechahora', telefono = '$telefono' WHERE idreservaciones = $id";
     mysqli_query($conn, $query);
 
     header('Location: index.php');
@@ -49,6 +51,10 @@ if (isset($_POST['servicio'])) {
                 <div class="form_container">
                     <label for="fehora" class="formulario_label">Fecha y Hora:</label>
                     <input type="datetime-local" name="fehora" id="fehora" class="formulario_input" value="<?php echo $fechahora; ?>">
+                </div>
+                <div class="form_container">
+                    <label for="telefono" class="formulario_label">Telefono:</label>
+                    <input type="text" name="telefono" id="telefono" class="formulario_input" value="<?php echo $telefono; ?>">
                 </div>
                 <div class="form_container">
                     <input type="submit" value="Actualizar" class="formulario_btn">

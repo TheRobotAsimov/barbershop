@@ -6,7 +6,8 @@
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $query = "DELETE FROM reservaciones WHERE idreservaciones = $id";
+        $estado = "Cancelado";
+        $query = "UPDATE reservaciones SET estado = '$estado' WHERE idreservaciones = $id";
         $result = mysqli_query($conn, $query);
         sleep(2);
         header('Location: readR.php');

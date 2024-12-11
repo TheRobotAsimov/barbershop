@@ -53,6 +53,13 @@
                         La fecha y hora son obligatorias.
                     </div>
                 </div>
+                <div class="form_container">
+                    <label for="telefono" class="formulario_label">Teléfono:</label>
+                    <input type="text" name="telefono" id="telefono" class="formulario_input" onkeypress="if((event.keyCode < 48) || (event.keyCode >57)){ event.returnValue=false; }" maxlength="10">
+                    <div class="alert alert-danger mt-2 d-none" id="telefonoAlert">
+                        El teléfono es obligatorio y debe contener solo números.
+                    </div>
+                </div>  
                 <div class="form_container">            
                     <input type="button" value="Enviar Datos" class="formulario_btn" onclick="validacion()"> 
                 </div> 
@@ -61,7 +68,7 @@
                 <a href="admin.php" class="enlace-minimalista">
                     <img src="../Static/img/flecha.png" class="volver">
                 </a>
-                <a href="read.php" class="enlace-minimalista">
+                <a href="readR.php" class="enlace-minimalista">
                     <img src="../Static/img/read.png" class="volver">
                 </a>
             </div>

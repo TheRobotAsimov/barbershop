@@ -26,8 +26,15 @@
                     <label for="fehora" class="formulario_label">Fecha y Hora:</label>
                     <input type="datetime-local" name="fehora" id="fehora" class="formulario_input">
                 </div>
+                <div class="form_container">
+                    <label for="telefono" class="formulario_label">Teléfono:</label>
+                    <input type="text" name="telefono" id="telefono" class="formulario_input" onkeypress="if((event.keyCode < 48) || (event.keyCode >57)){ event.returnValue=false; }" maxlength="10">
+                    <div class="alert alert-danger mt-2 d-none" id="telefonoAlert">
+                        El teléfono es obligatorio y debe contener solo números.
+                    </div>
+                </div>
                 <div class="form_container">            
-                    <input type="submit" value="Enviar Datos" class="formulario_btn"> 
+                    <input type="button" value="Enviar Datos" class="formulario_btn" onclick="validacion()"> 
                 </div> 
             </form> 
 
@@ -37,5 +44,7 @@
         </div>
     </article>
 </div>
+
+<script src='../Static/js/appvlidacionR.js'></script>  
 
 <?php include '../includes/footer.php'; ?>

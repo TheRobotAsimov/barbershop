@@ -7,8 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $idservicio = $_POST['servicio'];
     $idusuario = $_POST['usuario'];
     $fechahora = $_POST['fehora'];
+    $telefono = $_POST['telefono'];
+    $estado = "Activo";
 
-    $sql = "INSERT INTO reservaciones (idusuario, idservicio, fechahora) VALUES ('$idusuario', '$idservicio', '$fechahora')";
+    $sql = "INSERT INTO reservaciones (idusuario, idservicio, fechahora, telefono, estado) VALUES ('$idusuario', '$idservicio', '$fechahora', '$telefono', '$estado')";
     
     $result = mysqli_query($conn, $sql);
 

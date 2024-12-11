@@ -7,12 +7,12 @@
         <h3>BARBERSHOP MÉXICO</h3>
         <?php echo "<p>Bienvenido $user</p>" ?>
         <hr>
-        <h4>Reservaciones Aceptadas:</h4>
+        <h4>Pedir Reservación:</h4>
         <a href="create.php" class="enlace-minimalista mb-4">
-          <img src="../Static/img/create.png" class="volver">
-          <span>Nueva Reservación</span>
+            <img src="../Static/img/create.png" class="volver">
         </a>
-
+        
+        <h4>Reservaciones Aceptadas:</h4>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -25,11 +25,13 @@
             <tbody>
                 <?php
                 $id = $_SESSION['id'];
-                $query = "SELECT * FROM reservaciones WHERE idusuario = '$id'";
+                $estado = "Activo";
+                $query = "SELECT * FROM reservaciones WHERE estado = '$estado' AND idusuario = '$id'";
                 $result_reservaciones = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result_reservaciones)) { ?>
                     <tr>
                         <td><?php
+                            $estado = "Activo";
                             $query2 = "SELECT * FROM servicios WHERE idservicios = '" . $row['idservicio'] . "'";
                             $result_servicio = mysqli_query($conn, $query2);
                             $servicio = mysqli_fetch_array($result_servicio);

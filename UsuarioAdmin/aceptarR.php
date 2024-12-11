@@ -6,13 +6,11 @@
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $estado = "Cancelado";
+        $estado = "Activo";
         $query = "UPDATE reservaciones SET estado = '$estado' WHERE idreservaciones = $id";
         $result = mysqli_query($conn, $query);
         sleep(2);
-        header('Location: index.php');
+        header('Location: readR.php');
     }
 
 ?>
-
-<?php include '../includes/footer.php'; ?>

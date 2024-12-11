@@ -54,6 +54,9 @@
                                     <a href="updateR.php?id=<?php echo $row['idreservaciones']; ?>" class="enlace-minimalista">
                                         <img src="../Static/img/update.png" class="volver" alt="Update">
                                     </a>
+                                    <a href="aceptarR.php?id=<?php echo $row['idreservaciones']; ?>" class="enlace-minimalista">
+                                        <img src="../Static/img/Check_icon.png" class="volver" alt="Delete">
+                                    </a>
                                     <a href="deleteR.php?id=<?php echo $row['idreservaciones']; ?>" class="enlace-minimalista">
                                         <img src="../Static/img/delete.png" class="volver" alt="Delete">
                                     </a>

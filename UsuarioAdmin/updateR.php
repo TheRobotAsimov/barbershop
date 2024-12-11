@@ -13,6 +13,8 @@
             $idservicios = $row['idservicio'];
             $fechahora = $row['fechahora'];
             $idusuario = $row['idusuario'];
+            $telefono = $row['telefono'];
+            $estado = $row['estado'];
         }
     }
 
@@ -21,11 +23,13 @@
         $idservicios = $_POST['servicio'];
         $fechahora = $_POST['fehora'];
         $idusuario = $_POST['usuario'];
+        $telefono = $_POST['telefono'];
+        $estado = $_POST['estado'];
 
-        $query = "UPDATE reservaciones SET idservicio = '$idservicios', fechahora = '$fechahora', idusuario = '$idusuario' WHERE idreservaciones = $id";
+        $query = "UPDATE reservaciones SET idservicio = '$idservicios', fechahora = '$fechahora', idusuario = '$idusuario', telefono = '$telefono', estado = '$estado' WHERE idreservaciones = $id";
         mysqli_query($conn, $query);
 
-        header('Location: index.php');
+        header('Location: readR.php');
     }
 
 ?>
@@ -73,10 +77,23 @@
                     <input type="datetime-local" name="fehora" id="fehora" class="formulario_input" value="<?php echo $fechahora; ?>">
                 </div>
                 <div class="form_container">
+                    <label for="telefono" class="formulario_label">Telefono:</label>
+                    <input type="text" name="telefono" id="telefono" class="formulario_input" value="<?php echo $telefono; ?>" onkeypress="if((event.keyCode < 48) || (event.keyCode >57)){ event.returnValue=false; }" maxlength="10">
+                </div>
+                <div class="form_container">
+                    <label for="telefono" class="formulario_label">Estado:</label>
+                    <select name="estado" id="estado" class="formulario_input">
+                            <option value="">Seleccione un estado</option>
+                            <option value="Activo" <?php if ($estado == "Activo") echo 'selected'; ?>>Activo</option>
+                            <option value="Pendiente" <?php if ($estado == "Pendiente") echo 'selected'; ?>>Pendiente</option>
+                            <option value="Cancelado" <?php if ($estado == "Cancelado") echo 'selected'; ?>>Cancelado</option>
+                    </select>
+                </div>
+                <div class="form_container">
                     <input type="submit" value="Actualizar" class="formulario_btn">
                 </div>
             </form>
-            <a href="admin.php" class="enlace-minimalista">
+            <a href="readR.php" class="enlace-minimalista">
                 <img src="../Static/img/flecha.png" class="volver">
             </a>
         </div>
